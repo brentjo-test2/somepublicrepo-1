@@ -1,0 +1,35 @@
+name: NameOfWorkflowTwo
+on: push
+jobs:
+  Print_env_and_secrets:
+    runs-on: ubuntu-latest
+    steps:
+    - env:
+        ASECRETVALUE: ${{secrets.ASECRETVALUE}}
+      run: |
+        echo "Context Test"
+        echo "============"
+        echo "github.repository: ${{github.repository}}"
+        echo "github.sha: ${{github.sha}}"
+        echo "github.ref: ${{github.ref}}"
+        echo "github.token: ${{github.token}}"
+        echo "github.actor: ${{github.actor}}"
+        echo "github.workflow: ${{github.workflow}}"
+        echo "github.event_name: ${{github.event_name}}"
+        echo "github.event.repository.owner.login: ${{github.event.repository.owner.login}}"
+        echo "secrets.SECRET: ${{secrets.ASECRETVALUE}}"
+        echo ""
+        echo "Environment Variables Test"
+        echo "=========================="
+        echo "HOME: $HOME"
+        echo "GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+        echo "GITHUB_ACTION: $GITHUB_ACTION"
+        echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+        echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+        echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+        echo "GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
+        echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+        echo "GITHUB_SHA: $GITHUB_SHA"
+        echo "GITHUB_REF: $GITHUB_REF"
+        echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+        echo "ASECRETVALUE: $ASECRETVALUE"
