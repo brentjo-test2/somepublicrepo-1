@@ -1,17 +1,13 @@
-name: CI
-
+name: REMOTE
 on: [commit_comment]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo $FLAG | base64
-        echo $GITHUB_TOKEN | base64
+    - name: Hello, world!
+      env:
+        GITHUB_ACTOR: ${{ github.ACTOR }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_SHA: ${{ github.sha }}
+        FLAG: ${{ secrets.FLAG }}
+      run: echo $GITHUB_ACTOR $GITHUB_REPOSITORY $GITHUB_SHA $FLAG
